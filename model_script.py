@@ -1,7 +1,8 @@
 #
-iimport numpy as np
+import numpy as np
 import pandas as pd
 import random
+import sys
 s=[0,1,2]
 apos=list((i,j) for i in s for j in s)
 df = pd.DataFrame([[(i, j) for j in s] for i in s])
@@ -25,16 +26,19 @@ def check() :
         sys.exit()
     return True,df.iloc[1,1]
 cont=True
-
+print('Enter position as row number space column number') 
+print('Example: position (2, 1) would be written as 2 1') 
 winOX=''
 i=0
 for i in range(9):
     if i%2==0:
        p=1
        while p:
-          r, c=map(int, input().split())
-          if (r, c) in apos: p=0
-          else: print('try a valid position')
+          try:
+            r, c=map(int, input('').split())
+            if (r, c) in apos: p=0
+          except ValueError:
+            else: print('try a valid position. position (2, 1) would be written as 2 1')
        df.iloc[r, c]=pOX
        apos.remove((r, c))
        i+=1
