@@ -35,7 +35,7 @@ for i in range(9):
        p=1
        while p:
           try:
-            r, c=map(int, input('').split())
+            r, c=map(int, list(input('').replace('(','').replace(')','').replace(',','').replace(' ',''))) 
             if (r, c) in apos: p=0
           
             else: print('try a valid position. position (2, 1) would be written as 2 1')
