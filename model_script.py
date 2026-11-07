@@ -37,8 +37,10 @@ for i in range(9):
           try:
             r, c=map(int, input('').split())
             if (r, c) in apos: p=0
-          except ValueError:
+          
             else: print('try a valid position. position (2, 1) would be written as 2 1')
+          except ValueError:
+              print('try a valid position. position (2, 1) would be written as 2 1')
        df.iloc[r, c]=pOX
        apos.remove((r, c))
        i+=1
